@@ -1,7 +1,19 @@
 Issues created for each teammate to work on:
+1/ Sign up/sign in form
+2/ index.php 
+3/ upload image form
+4/ upload image and save it to src folder
+5/ calculate popularity of image
+6/ keep track of recent rating image
 
 Huy:
-
+2/ index.php
+4/ Save image to src folder & update database
+5/ Calculate popularity of image
+6/ Keep track of recent rating image
 
 
 David:
+1/ Sign up/sign in form
+2/ index.php
+3/ Upload image form

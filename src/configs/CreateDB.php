@@ -9,17 +9,28 @@ if(!$conn){
 	echo "Connect to database.\n";
 }
 
-
-
-$table = "ImageRating";
-$sql = "CREATE TABLE $table(
+$img_table = "ImageRating";
+$user_table = "Users";
+$img_sql = "CREATE TABLE $img_table(
 id INT(10) PRIMARY KEY,
 user VARCHAR(30),
 caption VARCHAR(50),
 rating INT(1),
 uploaded_time TIMESTAMP)";
 
-mysqli_query($conn,"DROP TABLE IF EXISTS $table");
-mysqli_query($conn, $sql);
+$user_sql = "CREATE TABLE $user_table(
+id INT(5) PRIMARY KEY,
+user VARCHAR(30),
+password VARCHAR(15),
+email VARCHAR(100),
+firstname VARCHAR(20),
+lastname VARCHAR(20),
+created_time TIMESTAMP
+)";
 
+//Create table
+mysqli_query($conn,"DROP TABLE IF EXISTS $img_table");
+mysqli_query($conn, $img_sql);
+mysqli_query($conn,"DROP TABLE IF EXISTS $user_table");
+mysqli_query($conn, $user_sql);
 ?>
