@@ -1,0 +1,43 @@
+/* CSS file */
+h1{
+	text-align: center;
+}
+
+ul#navbar{
+	list-style-type: none;
+	overflow: hidden;
+	position:relative;
+	top:-45px;
+	right:100px;
+}
+
+ul#navbar li{
+	display: inline;
+	position: relative;
+	float:right;
+	margin: 0 5px 0 5px;
+	padding: 0 5px 0 5px;
+}
+
+#navbar a{
+	display:block;
+	text-align: center;
+	text-decoration: none;
+}
+
+#uploadBttn{
+	position:relative;
+	text-align: center;
+}
+
+.recentUpload{
+	height: 500px;
+}
+
+.recentUpload img{
+	height:300px;
+}
+
+.popularUpload{
+	height:500px;
+}

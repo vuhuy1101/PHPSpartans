@@ -1,15 +1,12 @@
 <?php
-/**
- * View.php
- * (C) 2016 Chris Pollett
- */
-namespace cs174\email_validator\views;
+
+namespace PHPSpartans\hw3\views;
 
 /**
- * Base class for all views used in the Email Validator Web App
+ * Base class for all views used in the Image Rating website
  */
 abstract class View
-{
+{w
     /**
      * This method should be overriden to draw a web page to the browser
      */

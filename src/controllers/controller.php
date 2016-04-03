@@ -5,7 +5,7 @@
  */
 namespace PHPSpartans\hw3\controllers;
 
-use cs174\email_validator as B;
+use PHPSpartans\hw3 as B;
 
 /**
  * Base class for all controllers used in the Email Validator Web App
