@@ -1,5 +1,5 @@
 <?php
-$destination = "/resources/";
+$destination = "../resources/";
 $target_file = $destination.basename($_FILES["uploadFile"]["name"]);
 $tmp_name = $_FILES["uploadFile"]["tmp_name"];
 

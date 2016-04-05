@@ -2,6 +2,7 @@
 //Create the Database for the project
 require_once("Config.php");
 
+$conn = mysqli_connect($server, $user, $password);
 if($conn->connect_error){
 	die("Connection failed: ".$conn->connect_error."\n");
 }
@@ -14,7 +15,7 @@ if($conn->query($query) === TRUE){
 	echo "Error creating database: ".$conn->error."\n";
 }
 
-//Connect to database
+//Connect to databasew
 $conn = mysqli_connect($server, $user, $password, $db);
 if(!$conn){
 	echo "Could not connect to database";

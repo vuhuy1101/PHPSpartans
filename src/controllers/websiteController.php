@@ -5,11 +5,11 @@
 	
 	class websiteController extends Controller
 	{
-		function processRequest()
+		function processRequest($name)
 		{
 			$data = [];
 			
-			$this->view("website")->render($data);
+			$this->view($name)->render($data);
 		}
-	}
+	}	
 ?>

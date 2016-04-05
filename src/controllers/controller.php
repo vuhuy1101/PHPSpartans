@@ -16,7 +16,7 @@ abstract class Controller
      * This method should be overriden to handle requests to a controller
      * from the web app
      */
-    public abstract function processRequest();
+    public abstract function processRequest($name);
     /**
      * Used to remove bad input from either a GET'd or POST'd form variable
      *
