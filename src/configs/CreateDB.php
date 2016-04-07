@@ -2,6 +2,11 @@
 //Create the Database for the project
 require_once("Config.php");
 
+$server = "localhost";
+$user = "root";
+$password = "";
+		
+
 $conn = mysqli_connect($server, $user, $password);
 if($conn->connect_error){
 	die("Connection failed: ".$conn->connect_error."\n");

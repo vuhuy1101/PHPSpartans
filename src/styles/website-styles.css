@@ -3,6 +3,43 @@ h1{
 	text-align: center;
 }
 
+h1.signIn {
+	float: left;
+	left: 2in;
+	position: relative;
+}
+
+h1.signUp {
+	float: right;
+	right: 2in;
+	position: relative;
+}
+
+.containerSignIn {
+	position: relative;
+	left: 1in;
+	width: 250px;
+	clear: both;
+}
+.containerSignIn input {
+	width: 100%;
+	clear: both;
+}
+
+.containerSignUp {
+	float: right;
+	top: -1in;
+	left: -1in;
+	position: relative;
+	width: 250px;
+	clear: both;
+}
+.containerSignUp input {
+	width: 100%;
+	clear: both;
+}
+
+
 ul#navbar{
 	list-style-type: none;
 	overflow: hidden;

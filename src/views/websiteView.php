@@ -20,13 +20,12 @@ class websiteView extends View
 			<head>
 				<meta charset="UTF-8">
 				<title>Image Rating Website</title>
-				<link rel="stylesheet" href="src/styles/website-styles.css">
+				<link rel="stylesheet" type="text/css" href="src\\styles\\website-styles.css">
 			</head>
 			<body>
 				<h1>Image Rating[logo here]</h1>
 				<ul id="navbar">
-					<li><a href="">Sign In</a></li>
-					<li><a href="">Sign Up</a></li>
+					<li><a href="src\views\signUpView.php">Sign-In/Sign-Up</a></li>
 				</ul>
 				<div id="uploadBttn">
 					<button>Upload Image</button>
