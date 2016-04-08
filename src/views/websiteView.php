@@ -25,7 +25,7 @@ class websiteView extends View
 			<body>
 				<h1>Image Rating[logo here]</h1>
 				<ul id="navbar">
-					<li><a href="src\views\signUpView.php">Sign-In/Sign-Up</a></li>
+					<li><a href="../PHPSpartans/index.php?c=signUp">Sign-In/Sign-Up</a></li>
 				</ul>
 				<div id="uploadBttn">
 					<button>Upload Image</button>

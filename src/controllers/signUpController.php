@@ -3,7 +3,7 @@
 	
 	require_once("Controller.php");
 	
-	class websiteController extends Controller
+	class signUpController extends Controller
 	{
 		/**
 		 * Used to handle form data coming from websiteView.
