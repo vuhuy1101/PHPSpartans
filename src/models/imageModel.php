@@ -2,7 +2,7 @@
 namespace PHPSpartans\hw3\models;
 
 require_once("Model.php");
-require_once("src/configs/Config.php");
+require_once(dirname(__FILE__).'/../configs/Config.php');
 	
 class imageModel extends Model
 {

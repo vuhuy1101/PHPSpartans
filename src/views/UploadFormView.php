@@ -3,7 +3,7 @@ namespace PHPSpartans\hw3\views;
 
 require_once("View.php");
 
-class uploadView extends View
+class UploadFormView extends View
 {
 	function render($data){
 		?>

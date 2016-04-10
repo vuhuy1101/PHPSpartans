@@ -1,9 +1,9 @@
 <?php
 	namespace PHPSpartans\hw3\controllers;
-	
+		
 	require_once("Controller.php");
-	
-	class websiteController extends Controller
+
+	class UploadFormController extends Controller
 	{
 		/**
 		 * Used to handle form data coming from websiteView.
@@ -13,7 +13,7 @@
 		{
 			$data = [];
 			
-			$this->view("website")->render($data);
+			$this->view("uploadForm")->render($data);
 		}
 	}	
 ?>

@@ -9,11 +9,11 @@
 		 * Used to handle form data coming from websiteView.
 		 * Should sanitize that data.
 		 */
-		function processRequest($name)
+		function processRequest()
 		{
 			$data = [];
 			
-			$this->view($name)->render($data);
+			$this->view("signUp")->render($data);
 		}
 	}	
 ?>
