@@ -1,17 +1,29 @@
 <?php
 //Model
-/*
- Need function to initialize data at beginning, get data, update data, connect with DB
-*/
-namespace  PHPSpartans\hw3\models;
+namespace PHPSpartans\hw3\models;
+use PHPSpartans\hw3\DB_Config;
+
+require_once(dirname(__DIR__).'/configs/DB_Config.php');
 
 abstract class Model
 {
-	public $data;
+	var $data;
+	var $conn;
 	
-	function __construct(){
-		$this->$data = array();
+	function connectDB(){
+		$this->conn = mysqli_connect(DB_server, DB_user, DB_password, DB_db);
+		if(mysqli_connect_errno()){
+			die("Connection failed: ".mysqli_connect_error()."\n");
+			return false;
+		}
+		else {
+			return true;
+		}
 	}
 	
-	public abstract function connectDB();
+	public function closeDB(){
+		mysqli_close($this->conn);
+	}
 }
+
+?>

@@ -1,20 +1,16 @@
 <?php
 namespace PHPSpartans\hw3\models;
+
 require_once("Model.php");
-require_once("../src/configs/Config.php");
-	
+require_once(dirname(__DIR__).'/configs/DB_Config.php');
+
 class userModel extends Model
 {
-	function connectDB(){
-		$conn = mysqli_connect($server, $user, $password);
-		if($conn->connect_error){
-			die("Connection failed: ".$conn->connect_error."\n");
-			return false;
-		}
-		else {
-			return true;
-		}
+	//user, password, email, firstname, lastname, created_time
+	public function insertData($user, $password, $email, $fname, $lname, $created_time){
+		$sql = "INSERT INTO Users(user,password,email,firstname,lastname,created_time) VALUES ('$user', '$password','email','firstname','lastname',CURRENT_TIMESTAMP)";
+		$result = mysqli_query($this->conn, $sql);
 	}
-	
-}	
+
+}
 ?>

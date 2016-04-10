@@ -1,27 +1,26 @@
 <?php
 //Create the Database for the project
-require_once("Config.php");
+require_once("DB_Config.php");
 
-$server = "localhost";
-$user = "root";
-$password = "";
 		
 
-$conn = mysqli_connect($server, $user, $password);
+$conn = mysqli_connect(DB_server, DB_user, DB_password);
 if($conn->connect_error){
 	die("Connection failed: ".$conn->connect_error."\n");
 }
 
 //Create database
-$query = "CREATE DATABASE $db";
-if($conn->query($query) === TRUE){
+$dropQuery = "DROP DATABASE IF EXISTS phpspartans";
+$query = "CREATE DATABASE IF NOT EXISTS phpspartans";
+mysqli_query($conn, $dropQuery);
+if(mysqli_query($conn, $query) === TRUE){
 	echo "Database created successfully!\n";
 }else{
 	echo "Error creating database: ".$conn->error."\n";
 }
 
 //Connect to databasew
-$conn = mysqli_connect($server, $user, $password, $db);
+$conn = mysqli_connect(DB_server, DB_user, DB_password, DB_db);
 if(!$conn){
 	echo "Could not connect to database";
 }else{
@@ -31,14 +30,15 @@ if(!$conn){
 $img_table = "ImageRating";
 $user_table = "Users";
 $img_sql = "CREATE TABLE $img_table(
-id INT(10) PRIMARY KEY,
+id INT(10) PRIMARY KEY AUTO_INCREMENT,
 user VARCHAR(30),
 caption VARCHAR(50),
 rating INT(1),
-uploaded_time TIMESTAMP)";
+uploaded_time TIMESTAMP
+)";
 
 $user_sql = "CREATE TABLE $user_table(
-id INT(5) PRIMARY KEY,
+id INT(5) PRIMARY KEY AUTO_INCREMENT,
 user VARCHAR(30),
 password VARCHAR(15),
 email VARCHAR(100),
@@ -52,4 +52,5 @@ mysqli_query($conn,"DROP TABLE IF EXISTS $img_table");
 mysqli_query($conn, $img_sql);
 mysqli_query($conn,"DROP TABLE IF EXISTS $user_table");
 mysqli_query($conn, $user_sql);
+echo "Done";
 ?>
