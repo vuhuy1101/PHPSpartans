@@ -7,13 +7,18 @@ Issues created for each teammate to work on:
 6/ keep track of recent rating image
 
 Huy:
-2/ index.php
-4/ Save image to src folder & update database
-5/ Calculate popularity of image
-6/ Keep track of recent rating image
-
+- Save image to src folder & update on database    [done]
+- Upload image form    [ need to add imageName field for the form ]
+- update Rating on image   
+- Calculate popularity of image
 
 David:
-1/ Sign up/sign in form
-2/ index.php
-3/ Upload image form
+- Sign up/sign in form [done]
+- update data sign-up and sign-in database 
+- Keep track of recent rating image
+
+Both:
+- index.php (make the page looks prettier)
+
+NOTE:
+- the form needs to be POST-REDIRECT-GET
