@@ -7,7 +7,7 @@ class signUpController extends Controller
 {
 	/**
 	 * Used to handle form data coming from signUpController.
-	 * Should sanitize that data.
+	 * Should sanitize/validate that data.
 	 */
 	function processRequest()
 	{

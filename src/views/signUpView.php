@@ -36,7 +36,7 @@ class signUpView extends View
 					</form>
 				</div>
 				<div class="containerSignUp">
-					<form action="index.php" method="post">
+					<form action="../PHPSpartans/src/models/userModel.php?submit" method="post">
 						<label for="fname">First Name:</label>
 						<input type="text" id="fname" name="fname"/><br>
 						<label for="lname">Last Name:</label>
@@ -47,10 +47,9 @@ class signUpView extends View
 						<input type="password" id="password" name="password"/><br>
 						<label for="e-mail">E-mail Address:</label>
 						<input type="text" id="email" name="email"/><br>
-						<input type="submit" value="SignUp"/>
+						<input type="submit" name="submit" value="SignUp"/>
 					</form>
 				</div>
-		
 			</body>
 		</html>
 		<?php

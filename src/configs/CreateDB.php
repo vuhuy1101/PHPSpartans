@@ -52,9 +52,9 @@ mysqli_query($conn,"DROP TABLE IF EXISTS $img_table");
 mysqli_query($conn, $img_sql);
 mysqli_query($conn,"DROP TABLE IF EXISTS $user_table");
 mysqli_query($conn, $user_sql);
-<<<<<<< HEAD
-echo "Done";
-=======
+
 mysqli_query($conn,  "INSERT INTO $user_table(id, user, password, email, firstname, lastname, created_time) VALUES ('0', 'kgb', '1234', 'david@gmail.com', 'David', 'Nakonechnyy', 'NULL')");
->>>>>>> e52cb82aad938f50882340779b85297dd667997d
+echo "Done";
+
+
 ?>
