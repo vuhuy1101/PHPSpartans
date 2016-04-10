@@ -12,9 +12,13 @@ class UploadFormView extends View
 		<body>
 
 		<form action="../PHPSpartans/src/controllers/uploadController.php" method="post" enctype="multipart/form-data">
-			Select your image (JPEG only): 
-			<input type="file" name="uploadFile" id="uploadFile">
-			<input type="submit" value="Start Upload" name="submit">
+			<p><label for="imgName">Image Name</label>
+			<input type="text" name="imgName" id="imgName"/></p>
+			<p><label for="">Caption</label>
+			<input type="text" name="caption" id="caption"/></p>
+			<p><label for="uploadFile">Select Image (JPEG only):</label>
+			<input type="file" name="uploadFile" id="uploadFile"/></p>
+			<input type="submit" value="Upload Image" name="submit"/>
 		</form>
 
 		</body>	

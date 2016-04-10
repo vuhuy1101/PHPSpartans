@@ -31,7 +31,7 @@ $img_table = "ImageRating";
 $user_table = "Users";
 $img_sql = "CREATE TABLE $img_table(
 id INT(10) PRIMARY KEY AUTO_INCREMENT,
-user VARCHAR(30),
+name VARCHAR(30),
 caption VARCHAR(50),
 rating INT(1),
 uploaded_time TIMESTAMP
@@ -52,9 +52,3 @@ mysqli_query($conn,"DROP TABLE IF EXISTS $img_table");
 mysqli_query($conn, $img_sql);
 mysqli_query($conn,"DROP TABLE IF EXISTS $user_table");
 mysqli_query($conn, $user_sql);
-<<<<<<< HEAD
-echo "Done";
-=======
-mysqli_query($conn,  "INSERT INTO $user_table(id, user, password, email, firstname, lastname, created_time) VALUES ('0', 'kgb', '1234', 'david@gmail.com', 'David', 'Nakonechnyy', 'NULL')");
->>>>>>> e52cb82aad938f50882340779b85297dd667997d
-?>
