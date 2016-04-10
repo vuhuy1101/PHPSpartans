@@ -28,6 +28,43 @@ abstract class Controller
     public function sanitize($request_field, $type)
     {
         switch($type) {
+			
+			case "user_name":
+                //filter_input = take a request and sanitize to only those characters involved in the email address
+                $out = filter_input(INPUT_GET,
+                    $request_field, FILTER_SANITIZE_STRING);
+                if ($out === false) {
+                    $out = filter_input(INPUT_POST,
+                        $request_field, FILTER_SANITIZE_STRING);
+                }
+                break;
+			case "password":
+                //filter_input = take a request and sanitize to only those characters involved in the email address
+                $out = filter_input(INPUT_GET,
+                    $request_field, FILTER_SANITIZE_STRING);
+                if ($out === false) {
+                    $out = filter_input(INPUT_POST,
+                        $request_field, FILTER_SANITIZE_STRING);
+                }
+                break;
+			case "fname":
+                //filter_input = take a request and sanitize to only those characters involved in the email address
+                $out = filter_input(INPUT_GET,
+                    $request_field, FILTER_SANITIZE_STRING);
+                if ($out === false) {
+                    $out = filter_input(INPUT_POST,
+                        $request_field, FILTER_SANITIZE_STRING);
+                }
+                break;
+			case "lname":
+                //filter_input = take a request and sanitize to only those characters involved in the email address
+                $out = filter_input(INPUT_GET,
+                    $request_field, FILTER_SANITIZE_STRING);
+                if ($out === false) {
+                    $out = filter_input(INPUT_POST,
+                        $request_field, FILTER_SANITIZE_STRING);
+                }
+                break;	
             case "email":
                 //filter_input = take a request and sanitize to only those characters involved in the email address
                 $out = filter_input(INPUT_GET,
@@ -35,14 +72,6 @@ abstract class Controller
                 if ($out === false) {
                     $out = filter_input(INPUT_POST,
                         $request_field, FILTER_SANITIZE_EMAIL);
-                }
-                break;
-            case "string":
-                $out = filter_input(INPUT_GET,
-                    $request_field, FILTER_SANITIZE_STRING);
-                if ($out === false) {
-                    $out = filter_input(INPUT_POST,
-                        $request_field, FILTER_SANITIZE_STRING);
                 }
                 break;
             default:
@@ -62,11 +91,20 @@ abstract class Controller
     public function validate($variable, $type)
     {
         switch($type) {
+            case "user_name":
+                $valid = filter_var($variable, FILTER_SANITIZE_STRING);
+                break;
+			case "password":
+                $valid = filter_var($variable, FILTER_SANITIZE_STRING);
+                break;
+			case "fname":
+                $valid = filter_var($variable, FILTER_SANITIZE_STRING);
+                break;
+			case "lname":
+                $valid = filter_var($variable, FILTER_SANITIZE_STRING);
+                break;
             case "email":
                 $valid = filter_var($variable, FILTER_VALIDATE_EMAIL);
-                break;
-            case "url":
-                $valid = filter_var($variable, FILTER_VALIDATE_URL);
                 break;
             default:
                 $valid = false;
