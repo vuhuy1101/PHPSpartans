@@ -36,9 +36,6 @@ class userModel extends Model
 				echo "SORRY...YOU ARE ALREADY REGISTERED USER..."; 
 			}
 		}
-		else{
-			echo "Not working";
-		}
 	}
 
 	function submit()
@@ -48,11 +45,7 @@ class userModel extends Model
 			echo "Submitting";
 			SignUp(); 
 		}
-		else{
-			echo "submit not working";
-		}
 		
-		echo "I made it....";
 	}
 
 }
