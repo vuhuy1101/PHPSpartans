@@ -37,14 +37,16 @@ function processData()
 			// Scale image
 			$scaled_image = imagescale($image_resource, 500, 500*$height/$width); 
 			imagejpeg($scaled_image,"../resources/".$_FILES["uploadFile"]["name"]);
-			
-			$user = "testUser";
-			$caption = "Default";
+			if(isset($_POST['imgName'])){
+				$imgName = $_POST["imgName"];
+			}
+			if(isset($_POST['caption']))
+				$caption = $_POST["caption"];
 			$rating = null;
 			$imgModel = new imageModel();
 			$checkDB = $imgModel->connectDB();
 			if($checkDB == true){
-				$imgModel->insertData($user, $caption, $rating);
+				$imgModel->insertData($imgName, $caption, $rating);
 				$imgModel->closeDB();
 			}
 			
