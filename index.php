@@ -15,12 +15,12 @@ define(NS_BASE . "NS_MODELS","PHPSpartans\\hw3\\models\\");
 
 $allowed_controllers = ["website","uploadForm", "upload","signUp"];
 //determine controller for request
-if (!empty($_REQUEST['c']) && in_array($_REQUEST['c'], $allowed_controllers)) {
-    $controller_name = NS_CONTROLLERS . $_REQUEST['c']. "Controller";
+if (!empty($_REQUEST['controller']) && in_array($_REQUEST['controller'], $allowed_controllers)) {
+    $controller_name = NS_CONTROLLERS . $_REQUEST['controller']. "Controller";
 	//instatiate controller for request
 	$controller = new $controller_name();
 	//process request
-	$controller->processRequest($_REQUEST['c']);
+	$controller->processRequest($_REQUEST['controller']);
 } else {
 	$controller_name = NS_CONTROLLERS . "websiteController";
 	
