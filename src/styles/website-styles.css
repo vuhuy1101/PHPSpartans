@@ -67,14 +67,20 @@ ul#navbar li{
 	text-align: center;
 }
 
-.recentUpload{
-	height: 500px;
+#displayImg{
+	line-height: 0.3px;
 }
 
-.recentUpload img{
-	height:300px;
+ul#displayImg{
+	list-style-type: none;
+	overflow: hidden;
+	position: relative;
 }
 
-.popularUpload{
-	height:500px;
+ul#displayImg li{
+	vertical-align: top;
+	display:inline-block;  
+	position: relative;
+	padding:10px 0 10px 0;
+	margin: 10px 20px 20px 20px;
 }

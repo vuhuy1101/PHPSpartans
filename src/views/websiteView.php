@@ -1,7 +1,10 @@
 <?php
 namespace PHPSpartans\hw3\views;
+use PHPSpartans\hw3\views\helpers\imageHelper;
 	
 require_once("View.php");
+require_once("helpers/Helper.php");
+require_once("helpers/imageHelper.php");
 	
 /**
  * This class is responsible for drawing the complete page 
@@ -14,13 +17,15 @@ class websiteView extends View
 	*/	
 	public function render($data)
 	{
+		$imgHelper = new ImageHelper();
+					
 		?>
 		<!DOCTYPE html>
 		<html>
 			<head>
 				<meta charset="UTF-8">
 				<title>Image Rating Website</title>
-				<link rel="stylesheet" type="text/css" href="src\\styles\\website-styles.css">
+				<link rel="stylesheet" type="text/css" href="src/styles/website-styles.css">
 			</head>
 			<body>
 				<h1>Image Rating[logo here]</h1>
@@ -32,7 +37,7 @@ class websiteView extends View
 				</div>
 				<div class="recentUpload">
 					<h2>Recent 3 uploaded images</h2>
-					<img src="src/resources/1.jpg" />
+					<?php $imgHelper->render($data); ?>
 				</div>
 				<div class="popularUpload">
 					<h2>Most popular images</h2>

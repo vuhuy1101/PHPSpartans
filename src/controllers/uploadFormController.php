@@ -13,7 +13,7 @@
 		{
 			$data = [];
 			
-			$this->view("uploadForm")->render($data);
+			$this->view("upload")->render($data);
 		}
 	}	
 ?>

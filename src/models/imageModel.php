@@ -10,6 +10,13 @@ class imageModel extends Model
 		$sql = "INSERT INTO ImageRating(name,caption,uploaded_time) VALUES ('$name', '$caption',CURRENT_TIMESTAMP)";
 		$result = mysqli_query($this->conn, $sql);
 	}
-
+	
+	public function retrieveMostRecent()
+	{
+		$sql = "SELECT * FROM phpspartans.ImageRating GROUP BY uploaded_time DESC;";
+		$result = mysqli_query($this->conn, $sql);
+		
+		return $result;	
+	}
 }
 ?>

@@ -8,12 +8,13 @@ Issues created for each teammate to work on:
 
 Huy:
 - Save image to src folder & update data on database    [done]
-- Upload image form    [ need to add imageName field for the form ]
+- Upload image form    [done]
 - update Rating on image after submitting  
 - Calculate popularity of image
 
 David:
 - Sign up/sign in form [done]
+- sanitize/validate data sign up/ sign in form [done]
 - update data to 'Users' table after submitting sign-up and sign-in form 
 - Keep track of recent rating image
 
