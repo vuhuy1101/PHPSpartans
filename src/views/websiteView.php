@@ -28,7 +28,7 @@ class websiteView extends View
 				<link rel="stylesheet" type="text/css" href="src/styles/website-styles.css">
 			</head>
 			<body>
-				<h1>Image Rating[logo here]</h1>
+				<h1>Image Rating <img src="../PHPSpartans/src/resources/Spartanlogo.jpg" alt="spartan_helmet" height="50" width="50"></h1>
 				<?php
 				if($_SESSION['login'] === "0"){ 
 				?>

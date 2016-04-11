@@ -4,6 +4,7 @@ use PHPSpartans\hw3\models\imageModel;
 	
 require_once(dirname(__DIR__).'/models/Model.php');
 require_once(dirname(__DIR__).'/models/imageModel.php');
+require_once(dirname(__DIR__).'/models/userModel.php');
 require_once(dirname(__DIR__).'/configs/DB_Config.php');
 require_once("Controller.php");
 
@@ -12,7 +13,7 @@ function processData()
 	$destination = __DIR__."../resources/";
 	$target_file = $destination.basename($_FILES["uploadFile"]["name"]);
 	$tmp_name = $_FILES["uploadFile"]["tmp_name"];
-
+	
 	$valid = 1;
 	$fileType = $_FILES["uploadFile"]["type"];
 	// Check if image file is a actual image or fake image	

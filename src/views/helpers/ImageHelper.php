@@ -10,6 +10,7 @@ class ImageHelper extends Helper
 		$rate = null;
 		echo '<ul id="displayImg">';
 		//id, name, caption, rating, uploaded_time
+
 		if(mysqli_num_rows($data[0]) > 0){
 			while(($row = mysqli_fetch_assoc($data[0])) && $count < 3){
 				$image_ID = $row['id'];
@@ -21,13 +22,10 @@ class ImageHelper extends Helper
 				
 				mysqli_data_seek($data[2],0);
 				while(($rateRow = mysqli_fetch_assoc($data[2]))){
-					if($rateRow['imageID'] === $row['id']){
+					if($rateRow['imageID'] === $row['id'])
 						$rate = $rateRow['rate'];
-					}
 				}
-					
-				
-				
+
 				if($rate !== null)
 				     echo "<p>Overall Rating: ".$rate."</p>";
 				else
@@ -40,11 +38,11 @@ class ImageHelper extends Helper
 					$data[3]->data_seek(0);
 					if(mysqli_num_rows($data[3]) > 0){
 						while(($rateRow2 = mysqli_fetch_assoc($data[3])) && $count < 1){
-						if($rateRow2['imageID'] === $image_ID && $rateRow2['userID'] === $user_ID){
-							$yourRate = $rateRow2['rate'];
-							echo "<p>Your Rate: $yourRate</p>";	
-							$count = 1;
-						}
+							if($rateRow2['imageID'] === $image_ID && $rateRow2['userID'] === $user_ID){
+								$yourRate = $rateRow2['rate'];
+								echo "<p>Your Rate: $yourRate</p>";	
+								$count = 1;
+							}
 						}
 					}
 					if($count == 0){
@@ -62,10 +60,7 @@ class ImageHelper extends Helper
 								</select>
 								<button type='submit' name='submit' value='Rate It'>Rate It</button></p></form>";
 						}
-					
-					
 				}
-				
 					$d = strtotime($row['uploaded_time']);
 				    echo "date: ".date("m-d-Y",$d)."</li>";
 				$count++;
