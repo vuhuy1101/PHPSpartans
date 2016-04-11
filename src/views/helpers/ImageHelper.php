@@ -10,7 +10,8 @@ class ImageHelper extends Helper
 		//id, name, caption, rating, uploaded_time
 		if(mysqli_num_rows($data) > 0){
 			while(($row = mysqli_fetch_assoc($data)) && $count < 3){
-				echo 
+				echo
+					"<p><button><a href='../PHPSpartans/index.php?controller=uploadForm'>Upload Image</a></button></p>".
 				     "<p><img src='src/resources/".$row['name'].".jpg' width='500' /></p>".
 					 "<li><p>Caption: ".$row['caption']."</p>".
 					 "<p>User: ".$row['user']."</p>";
