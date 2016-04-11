@@ -4,6 +4,7 @@ namespace PHPSpartans\hw3\models;
 require_once("Model.php");
 require_once(dirname(__DIR__).'/configs/DB_Config.php');
 
+session_set_cookie_params(0);
 session_start();
 
 class userModel extends Model
@@ -58,8 +59,8 @@ class userModel extends Model
 				$_SESSION['login'] = "1";
 				$_SESSION['user'] = $userName;
 				$_SESSION['user_id'] = $row['id'];
-				echo $_SESSION['user_id'];
-				//header("Location: http://localhost/PHPSpartans/index.php");	
+				
+				header("Location: http://localhost/PHPSpartans/index.php");	
 			} 
 			else { 
 				//Account doesn't exist

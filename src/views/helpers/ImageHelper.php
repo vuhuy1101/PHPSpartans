@@ -21,7 +21,7 @@ class ImageHelper extends Helper
 				}
 				
 				echo 
-				     "<li><p>Name: ".$row['name']."</p>".
+				     "<li><p>Name: ".$row['name'].$uploader."</p>".
 				     "<p>Caption: ".$row['caption']."</p>".
 					 "<p>User: ".$uploader."</p>".
 				     "<p><img src='src/resources/".$row['name'].".jpg' width='500' /></p>";
@@ -58,7 +58,7 @@ class ImageHelper extends Helper
 								<form action='../PHPSpartans/src/controllers/ratingController.php' method='post'>
 								<input type='hidden' name='image_ID' value='$image_ID'>
 								<input type='hidden' name='user_ID' value='$user_ID'>
-								<input type='hidden' name='uploader_userName' value='$uploader'>
+								<input type='hidden' name='uploader' value='$uploader'>
 								<p>Rating: <select name='rateOption' id='rateOption'>
 									<option value='1'>1</option>
 									<option value='2'>2</option>
