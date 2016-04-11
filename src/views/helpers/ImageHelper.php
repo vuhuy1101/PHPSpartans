@@ -11,9 +11,9 @@ class ImageHelper extends Helper
 		if(mysqli_num_rows($data) > 0){
 			while(($row = mysqli_fetch_assoc($data)) && $count < 3){
 				echo 
-				     "<li><p>name: ".$row['name']."</p>".
-				     "<p>caption: ".$row['caption']."</p>".
-				     "<p><img src='src/resources/".$row['name'].".jpg' width='500' /></p>";
+				     "<p><img src='src/resources/".$row['name'].".jpg' width='500' /></p>".
+					 "<li><p>Caption: ".$row['caption']."</p>".
+					 "<p>User: ".$row['user']."</p>";
 				if($row['rating'] !== null)
 				     echo "<p>Rating: ".$row['rating']."</p>";
 				else {
