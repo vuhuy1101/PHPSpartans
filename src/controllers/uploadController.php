@@ -39,19 +39,17 @@ function processData()
 			if(isset($_POST['imgName'])){
 				$imgName = $_POST["imgName"];
 			}
-			imagejpeg($scaled_image,"../resources/".$imgName.".jpg");
-			if(isset($_POST['caption']))
-				$caption = $_POST["caption"];
-			$rating = null;
-			$imgModel = new imageModel();
-			$checkDB = $imgModel->connectDB();
-			if($checkDB == true){
-				$imgModel->insertData($imgName, $caption, $rating);
-				$imgModel->closeDB();
+			if(imagejpeg($scaled_image,dirname(dirname(__DIR__))."/src/resources/".$imgName.".jpg")){
+				if(isset($_POST['caption']))
+					$caption = $_POST["caption"];
+				$imgModel = new imageModel();
+				$checkDB = $imgModel->connectDB();
+				if($checkDB == true){
+					$imgModel->insertData($imgName, $caption);
+					$imgModel->closeDB();
+				}
+				echo "Your image has been successfully uploaded!";
 			}
-			
-			
-			echo "Your image has been successfully uploaded!";
 			
 		}
 		else {

@@ -40,7 +40,7 @@ class websiteView extends View
 				?>
 					<ul id="navbar">
 					    <li><a href = "logout.php" tite = "Logout"> Log out</a></li>
-						<li>Welcome <?php echo $_SESSION['user'] ?></li>
+						<li>Welcome <?php echo $_SESSION['user']?></li>
 					</ul>
 			    <?php }
 				if($_SESSION['login'] === "1"){
@@ -51,6 +51,7 @@ class websiteView extends View
 				<?php } ?>
 				<div class="recentUpload">
 					<h2>Recent 3 uploaded images</h2>
+					
 					<?php $imgHelper->render($data); ?>
 				</div>
 				<div class="popularUpload">

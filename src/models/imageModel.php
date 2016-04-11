@@ -6,7 +6,7 @@ require_once(dirname(__DIR__).'/configs/DB_Config.php');
 
 class imageModel extends Model
 {
-	public function insertData($name, $caption, $rating){
+	public function insertData($name, $caption){
 		$sql = "INSERT INTO ImageRating(name,caption,uploaded_time) VALUES ('$name', '$caption',CURRENT_TIMESTAMP)";
 		$result = mysqli_query($this->conn, $sql);
 	}
@@ -18,5 +18,6 @@ class imageModel extends Model
 		
 		return $result;	
 	}
+	
 }
 ?>

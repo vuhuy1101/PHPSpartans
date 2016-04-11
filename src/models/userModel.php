@@ -8,6 +8,9 @@ session_start();
 
 class userModel extends Model
 {
+	var $userName = null;
+	var $userID = null;
+	
 	function NewUser() { 
 		$fname = $_POST['fname'];
 		$lname = $_POST['lname']; 	
@@ -21,6 +24,7 @@ class userModel extends Model
 			//Registration Done
 			$_SESSION['login'] = "1";
 			$_SESSION['user'] = $userName;
+			
 			header("Location: http://localhost/PHPSpartans/index.php");
 		} 
 	}
@@ -34,7 +38,7 @@ class userModel extends Model
 			} 
 			else { 
 				//Account is taken
-				header("Location: http://localhost/PHPSpartans/index.php?controller=signUpForm");				
+				header("Location: http://localhost/PHPSpartans/index.php?controller=signUpForm");			
 			}
 		}
 	}
@@ -44,12 +48,15 @@ class userModel extends Model
 		{
 			$userName = $_GET['user_name'];
 			$password = $_GET['password']; 
+			echo $userName;
+			echo $password;
 			
-			$result = mysqli_query($this->conn, "SELECT * FROM Users WHERE user = '$_GET[user_name]' AND password = '$_GET[password]'") or die(mysql_error());
-			if($row = mysqli_fetch_array($result) > 0) { 
+			$result = mysqli_query($this->conn, "SELECT * FROM phpspartans.Users WHERE user = '$userName' AND password = $password") or die(mysql_error());
+			if($row = mysqli_fetch_array($result)) { 
 				//Account exists
 				$_SESSION['login'] = "1";
 				$_SESSION['user'] = $userName;
+				$_SESSION['user_id'] = $row['id'];
 				header("Location: http://localhost/PHPSpartans/index.php");	
 			} 
 			else { 

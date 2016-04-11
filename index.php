@@ -27,6 +27,7 @@ if (!empty($_REQUEST['controller']) && in_array($_REQUEST['controller'], $allowe
 	
 	//instatiate controller for request
 	$controller = new $controller_name();
+	
 	//process request
 	$controller->processRequest();
 }
