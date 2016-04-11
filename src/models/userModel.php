@@ -38,6 +38,7 @@ class userModel extends Model
 			} 
 			else { 
 				//Account is taken
+				$_SESSION["taken"] = true;
 				header("Location: http://localhost/PHPSpartans/index.php?controller=signUpForm");			
 			}
 		}
@@ -61,6 +62,7 @@ class userModel extends Model
 			} 
 			else { 
 				//Account doesn't exist
+				$_SESSION["noAccount"] = true;
 				header("Location: http://localhost/PHPSpartans/index.php?controller=signUpForm");				
 			}
 		}	

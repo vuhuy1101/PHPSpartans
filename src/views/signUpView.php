@@ -34,6 +34,11 @@ class signUpView extends View
 						<input type="password" id="password" name="password"/><br>
 						<input type="submit" name="signIn" value="Login"/>
 					</form>
+				<?php 
+				if(isset($_SESSION["noAccount"])){
+					if($_SESSION["noAccount"] === true){
+				?> <p> This account doesn't exist. Please try again. </p>
+				<?php unset($_SESSION["noAccount"]); }}?>
 				</div>
 				<div class="containerSignUp">
 					<form action="../PHPSpartans/src/controllers/signUpController.php" method="post">
@@ -49,7 +54,13 @@ class signUpView extends View
 						<input type="text" id="email" name="email"/><br>
 						<input type="submit" name="submit" value="SignUp"/>
 					</form>
+					<?php 
+					if(isset($_SESSION["taken"])){
+						if($_SESSION["taken"] === true){
+					?> <p> The account is taken. Please try again. </p>
+					<?php unset($_SESSION["taken"]); }}?>
 				</div>
+		
 			</body>
 		</html>
 		<?php
