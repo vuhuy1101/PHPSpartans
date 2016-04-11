@@ -15,7 +15,7 @@ Huy:
 David:
 - Sign up/sign in form [done]
 - sanitize/validate data sign up/ sign in form [done]
-- update data to 'Users' table after submitting sign-up and sign-in form 
+- update data to 'Users' table after submitting sign-up and sign-in form [done] 
 - Keep track of recent rating image
 
 Both:

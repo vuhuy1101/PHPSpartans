@@ -50,8 +50,7 @@ function processData()
 				$imgModel->closeDB();
 			}
 			
-			
-			echo "Your image has been successfully uploaded!";
+			header("Location: http://localhost/PHPSpartans/index.php");
 			
 		}
 		else {
