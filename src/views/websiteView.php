@@ -29,12 +29,26 @@ class websiteView extends View
 			</head>
 			<body>
 				<h1>Image Rating[logo here]</h1>
-				<ul id="navbar">
-					<li><a href="../PHPSpartans/index.php?controller=signUpForm">Sign-In/Sign-Up</a></li>
-				</ul>
+				<?php
+				if($_SESSION['login'] === "0"){ 
+				?>
+					<ul id="navbar">
+						<li><a href="../PHPSpartans/index.php?controller=signUpForm">Sign-In/Sign-Up</a></li>
+					</ul>
+				<?php 
+				} else {
+				?>
+					<ul id="navbar">
+					    <li><a href = "logout.php" tite = "Logout"> Log out</a></li>
+						<li>Welcome <?php echo $_SESSION['user'] ?></li>
+					</ul>
+			    <?php }
+				if($_SESSION['login'] === "1"){
+				?>
 				<div id="uploadBttn">
 					<button><a href="../PHPSpartans/index.php?controller=uploadForm">Upload Image</a></button>
 				</div>
+				<?php } ?>
 				<div class="recentUpload">
 					<h2>Recent 3 uploaded images</h2>
 					<?php $imgHelper->render($data); ?>

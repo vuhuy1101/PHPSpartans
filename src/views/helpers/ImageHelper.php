@@ -17,15 +17,17 @@ class ImageHelper extends Helper
 				if($row['rating'] !== null)
 				     echo "<p>Rating: ".$row['rating']."</p>";
 				else {
-					echo 
-						"<p>Rating: <select>
-							<option value='1'>1</option>
-							<option value='2'>2</option>
-							<option value='3' selected='selected'>3</option>
-							<option value='4'>4</option>
-							<option value='5'>5</option>
-						</select>
-						<button type='submit' value='Rate It'>Rate It</button></p>";
+					if($_SESSION['login'] === "1"){
+						echo 
+							"<p>Rating: <select>
+								<option value='1'>1</option>
+								<option value='2'>2</option>
+								<option value='3' selected='selected'>3</option>
+								<option value='4'>4</option>
+								<option value='5'>5</option>
+							</select>
+							<button type='submit' value='Rate It'>Rate It</button></p>";
+					}
 				}
 					$d = strtotime($row['uploaded_time']);
 				    echo "date: ".date("m-d-Y",$d)."</li>";

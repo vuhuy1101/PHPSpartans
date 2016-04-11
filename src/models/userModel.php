@@ -4,6 +4,8 @@ namespace PHPSpartans\hw3\models;
 require_once("Model.php");
 require_once(dirname(__DIR__).'/configs/DB_Config.php');
 
+session_start();
+
 class userModel extends Model
 {
 	function NewUser() { 
@@ -17,6 +19,8 @@ class userModel extends Model
 		$data = mysqli_query($this->conn, $sql)or die(mysql_error()); 
 		if($data) { 
 			//Registration Done
+			$_SESSION['login'] = "1";
+			$_SESSION['user'] = $userName;
 			header("Location: http://localhost/PHPSpartans/index.php");
 		} 
 	}
@@ -44,6 +48,8 @@ class userModel extends Model
 			$result = mysqli_query($this->conn, "SELECT * FROM Users WHERE user = '$_GET[user_name]' AND password = '$_GET[password]'") or die(mysql_error());
 			if($row = mysqli_fetch_array($result) > 0) { 
 				//Account exists
+				$_SESSION['login'] = "1";
+				$_SESSION['user'] = $userName;
 				header("Location: http://localhost/PHPSpartans/index.php");	
 			} 
 			else { 
