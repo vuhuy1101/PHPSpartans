@@ -1,10 +1,12 @@
 <?php
 namespace PHPSpartans\hw3\controllers;
 use PHPSpartans\hw3\models\imageModel;
+use PHPSpartans\hw3\models\image_userModel;
 	
 require_once(dirname(__DIR__).'/models/Model.php');
 require_once(dirname(__DIR__).'/models/imageModel.php');
 require_once(dirname(__DIR__).'/models/userModel.php');
+require_once(dirname(__DIR__).'/models/image_userModel.php');
 require_once(dirname(__DIR__).'/configs/DB_Config.php');
 require_once("Controller.php");
 
@@ -43,12 +45,18 @@ function processData()
 			if(imagejpeg($scaled_image,dirname(dirname(__DIR__))."/src/resources/".$imgName.".jpg")){
 				if(isset($_POST['caption']))
 					$caption = $_POST["caption"];
+				$userName = $_SESSION['user'];
+				$img_userModel = new image_userModel();
 				$imgModel = new imageModel();
 				$checkDB = $imgModel->connectDB();
 				if($checkDB == true){
-					$imgModel->insertData($imgName, $caption);
-					$imgModel->closeDB();
+					$imgModel->insertData($imgName, $_SESSION['user_id'], $caption);
 				}
+				if($img_userModel->connectDB()){
+					$img_ID = $imgModel->retrieveID($imgName);
+					$img_userModel->insertUploader($img_ID, $_SESSION['user_id'], $userName);
+				}
+				
 				header("Location: http://localhost/PHPSpartans/index.php");
 			}
 

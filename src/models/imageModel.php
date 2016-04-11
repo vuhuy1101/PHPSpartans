@@ -20,5 +20,13 @@ class imageModel extends Model
 		return $result;	
 	}
 	
+	public function retrieveID($name){
+		$sql = "SELECT id FROM phpspartans.ImageRating WHERE name = '$name'";
+		$result = mysqli_query($this->conn, $sql);
+		$id = mysqli_fetch_array($result);
+		
+		return $id['id'];
+	}
+	
 }
 ?>

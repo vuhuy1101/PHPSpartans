@@ -14,10 +14,16 @@ class ImageHelper extends Helper
 		if(mysqli_num_rows($data[0]) > 0){
 			while(($row = mysqli_fetch_assoc($data[0])) && $count < 3){
 				$image_ID = $row['id'];
+				$data[3]->data_seek(0);
+				while(($rateRow = mysqli_fetch_assoc($data[3]))){
+					if($rateRow['imageID'] === $row['id'])
+						$uploader = $rateRow['uploader_userName'];
+				}
 				
 				echo 
-				     "<li><p>name: ".$row['name']."</p>".
-				     "<p>caption: ".$row['caption']."</p>".
+				     "<li><p>Name: ".$row['name']."</p>".
+				     "<p>Caption: ".$row['caption']."</p>".
+					 "<p>User: ".$uploader."</p>".
 				     "<p><img src='src/resources/".$row['name'].".jpg' width='500' /></p>";
 				
 				mysqli_data_seek($data[2],0);
@@ -25,6 +31,7 @@ class ImageHelper extends Helper
 					if($rateRow['imageID'] === $row['id'])
 						$rate = $rateRow['rate'];
 				}
+				
 
 				if($rate !== null)
 				     echo "<p>Overall Rating: ".$rate."</p>";
@@ -38,7 +45,7 @@ class ImageHelper extends Helper
 					$data[3]->data_seek(0);
 					if(mysqli_num_rows($data[3]) > 0){
 						while(($rateRow2 = mysqli_fetch_assoc($data[3])) && $count < 1){
-							if($rateRow2['imageID'] === $image_ID && $rateRow2['userID'] === $user_ID){
+							if($rateRow2['imageID'] === $image_ID && $rateRow2['userID'] === $user_ID && $rateRow2['rate'] !== null){
 								$yourRate = $rateRow2['rate'];
 								echo "<p>Your Rate: $yourRate</p>";	
 								$count = 1;
@@ -51,6 +58,7 @@ class ImageHelper extends Helper
 								<form action='../PHPSpartans/src/controllers/ratingController.php' method='post'>
 								<input type='hidden' name='image_ID' value='$image_ID'>
 								<input type='hidden' name='user_ID' value='$user_ID'>
+								<input type='hidden' name='uploader_userName' value='$uploader'>
 								<p>Rating: <select name='rateOption' id='rateOption'>
 									<option value='1'>1</option>
 									<option value='2'>2</option>

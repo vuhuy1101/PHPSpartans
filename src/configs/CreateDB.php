@@ -33,7 +33,6 @@ $fact_table = "Images_Users";
 $img_sql = "CREATE TABLE $img_table(
 id INT(10) PRIMARY KEY AUTO_INCREMENT,
 name VARCHAR(30),
-user VARCHAR(30),
 caption VARCHAR(50),
 uploaded_time TIMESTAMP
 )";
@@ -52,6 +51,7 @@ $fact_sql = "CREATE TABLE $fact_table(
 imageID int NOT NULL REFERENCES $img_table(id),
 userID int NOT NULL REFERENCES $user_table(id),
 rate int,
+uploader_userName VARCHAR(30),
 PRIMARY KEY (imageID, userID)
 )";
 

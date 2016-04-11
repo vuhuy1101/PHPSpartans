@@ -6,8 +6,19 @@ require_once(dirname(__DIR__).'/configs/DB_Config.php');
 
 class image_userModel extends Model
 {
-	public function insertData($imageID, $userID, $rate){
-		$sql = "INSERT INTO Images_Users VALUES ('$imageID', '$userID', '$rate')";
+	public function insertRating($option, $imageID, $userID, $rate, $uploader){
+		$sql1 = "UPDATE Images_Users SET rate = $rate WHERE imageID = $imageID AND userID = $userID";
+		$sql2 = "INSERT INTO Images_Users VALUES($imageID, $userID, $rate, '$uploader')";
+		
+		if($option === 1)
+			$result = mysqli_query($this->conn, $sql2);
+		else $result = mysqli_query($this->conn, $sql1);
+		
+		return $result;
+	}
+	
+	public function insertUploader($imageID, $userID, $userName){
+		$sql = "INSERT INTO Images_Users(imageID, userID, uploader_userName) VALUES ($imageID, $userID, '$userName')";
 		$result = mysqli_query($this->conn, $sql);
 		
 		return $result;
@@ -27,6 +38,15 @@ class image_userModel extends Model
 		$result = mysqli_query($this->conn, $sql);
 		
 		return $result;
+	}
+	
+	public function retrieverating($imageID, $userID)
+	{
+		$sql = "SELECT rate FROM phpspartans.Images_Users WHERE imageID = $imageID AND userID = $userID";
+		$result = mysqli_query($this->conn, $sql);
+		
+		return $result;
+
 	}
 	
 }

@@ -58,7 +58,8 @@ class userModel extends Model
 				$_SESSION['login'] = "1";
 				$_SESSION['user'] = $userName;
 				$_SESSION['user_id'] = $row['id'];
-				header("Location: http://localhost/PHPSpartans/index.php");	
+				echo $_SESSION['user_id'];
+				//header("Location: http://localhost/PHPSpartans/index.php");	
 			} 
 			else { 
 				//Account doesn't exist
@@ -66,6 +67,14 @@ class userModel extends Model
 				header("Location: http://localhost/PHPSpartans/index.php?controller=signUpForm");				
 			}
 		}	
+	}
+	
+	function retrieveData(){
+		$sql = "SELECT * FROM phpspartans.Users";
+		$result = mysqli_query($this->conn, $sql);
+		
+		return $result;
+
 	}
 
 }

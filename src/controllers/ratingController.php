@@ -12,7 +12,13 @@ function processData()
 {
 	$model = new image_userModel();
 	if($model->connectDB()){
-		$result = $model->insertData($_POST['image_ID'], $_SESSION['user_id'], $_POST['rateOption']);
+		$check = $model->retrieveData($_POST['image_ID'], $_SESSION['user_id']);
+		if($check){
+			$option = 1;
+		}else $option = 0;
+		
+		$result = $model->insertRating($option, $_POST['image_ID'], $_SESSION['user_id'], $_POST['rateOption'], $_POST['uploader_userName']);
+		
 		header("Location: http://localhost/PHPSpartans/index.php");	
 	}
 }
