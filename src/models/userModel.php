@@ -6,46 +6,51 @@ require_once(dirname(__DIR__).'/configs/DB_Config.php');
 
 class userModel extends Model
 {
-	//user, password, email, firstname, lastname, created_time
-	public function insertData($user, $password, $email, $fname, $lname, $created_time){
-		$sql = "INSERT INTO Users(user,password,email,firstname,lastname,created_time) VALUES ('$user', '$password','email','firstname','lastname',CURRENT_TIMESTAMP)";
-		$result = mysqli_query($this->conn, $sql);
-	}
-	
-	public function NewUser() { 
+	function NewUser() { 
 		$fname = $_POST['fname'];
 		$lname = $_POST['lname']; 	
 		$userName = $_POST['user_name'];
 		$password = $_POST['password']; 	
 		$email = $_POST['email'];  
-		$query = "INSERT INTO User(id, user, password, email, firstname, lastname, created_time) VALUES ('0','$fname','$lname', '$userName', '$password', 'email')"; 
-		$data = mysql_query ($query)or die(mysql_error()); 
+		$timestamp = date('Y-m-d G:i:s');
+		$sql = "INSERT INTO Users(id, user, password, email, firstname, lastname, created_time) VALUES ('0','$userName','$password', '$email', '$fname', '$lname', '$timestamp')";
+		$data = mysqli_query($this->conn, $sql)or die(mysql_error()); 
 		if($data) { 
-			echo "Your registration is completed!"; } 
+			//Registration Done
+			header("Location: http://localhost/PHPSpartans/index.php");
+		} 
 	}
 	
 	function SignUp() { 
-		if(!empty($_POST['user'])) //checking the 'user' name which is from Sign-Up.html, is it empty or have some text 
+		if(!empty($_POST['user_name'])) //Check if the user name is empty
 		{
-			$query = mysql_query("SELECT * FROM User WHERE user = '$_POST[user_name]' AND pass = '$_POST[password]'") or die(mysql_error()); 
-			
-			if(!$row = mysql_fetch_array($query) or die(mysql_error())) { 
-				NewUser(); 
+			$result = mysqli_query($this->conn, "SELECT * FROM Users WHERE user = '$_POST[user_name]'") or die(mysql_error());
+			if(!$row = mysqli_fetch_array($result)) { 
+				$this->NewUser(); 
 			} 
 			else { 
-				echo "SORRY...YOU ARE ALREADY REGISTERED USER..."; 
+				//Account is taken
+				header("Location: http://localhost/PHPSpartans/index.php?controller=signUpForm");				
 			}
 		}
 	}
-
-	function submit()
-	{
-		if(isset($_POST['submit'])) 
-		{ 
-			echo "Submitting";
-			SignUp(); 
-		}
-		
+	
+	function checkUser(){
+		if(!empty($_GET['user_name']) && !empty($_GET['password'])) //Check if the user name is empty
+		{
+			$userName = $_GET['user_name'];
+			$password = $_GET['password']; 
+			
+			$result = mysqli_query($this->conn, "SELECT * FROM Users WHERE user = '$_GET[user_name]' AND password = '$_GET[password]'") or die(mysql_error());
+			if($row = mysqli_fetch_array($result) > 0) { 
+				//Account exists
+				header("Location: http://localhost/PHPSpartans/index.php");	
+			} 
+			else { 
+				//Account doesn't exist
+				header("Location: http://localhost/PHPSpartans/index.php?controller=signUpForm");				
+			}
+		}	
 	}
 
 }

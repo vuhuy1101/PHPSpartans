@@ -27,16 +27,16 @@ class signUpView extends View
 				<h1 class="signIn"> Sign-In </h1>	
 				<h1 class="signUp"> Sign-Up </h1>
 				<div class="containerSignIn">
-					<form action="index.php" method="get">
+					<form action="../PHPSpartans/src/controllers/signUpController.php" method="get">
 						<label for="user_name">User Name:</label>
 						<input type="text" id="user_name" name="user_name"/><br>
 						<label for="password">Password:</label>
 						<input type="password" id="password" name="password"/><br>
-						<input type="submit" value="Login"/>
+						<input type="submit" name="signIn" value="Login"/>
 					</form>
 				</div>
 				<div class="containerSignUp">
-					<form action="../PHPSpartans/src/models/userModel.php?submit" method="post">
+					<form action="../PHPSpartans/src/controllers/signUpController.php" method="post">
 						<label for="fname">First Name:</label>
 						<input type="text" id="fname" name="fname"/><br>
 						<label for="lname">Last Name:</label>

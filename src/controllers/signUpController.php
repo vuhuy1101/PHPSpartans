@@ -1,33 +1,43 @@
 <?php
 namespace PHPSpartans\hw3\controllers;
-
+use PHPSpartans\hw3\models\userModel;
+	
+require_once(dirname(__DIR__).'/models/Model.php');
+require_once(dirname(__DIR__).'/models/userModel.php');
+require_once(dirname(__DIR__).'/configs/DB_Config.php');
 require_once("Controller.php");
 
-class signUpController extends Controller
+function processUserDataSignUp()
 {
-	/**
-	 * Used to handle form data coming from signUpController.
-	 * Should sanitize/validate that data.
-	 */
-	function processRequest()
-	{
-		$data = $_GET;
-		$data['PREVIOUS_USER_NAME'] = $this->sanitize("user_name","user_name");
-		$data['PREVIOUS_USER_NAME_VALID'] = $this->validate($data['PREVIOUS_USER_NAME'],"user_name");
-		
-		$data['PREVIOUS_PASSWORD'] = $this->sanitize("password","password");
-		$data['PREVIOUS_PASSWORD_VALID'] = $this->validate($data['PREVIOUS_PASSWORD'],"password");
-		
-		$data['PREVIOUS_FNAME'] = $this->sanitize("fname","fname");
-		$data['PREVIOUS_FNAME_VALID'] = $this->validate($data['PREVIOUS_FNAME'],"fname");
-		
-		$data['PREVIOUS_LNAME'] = $this->sanitize("lname","lname");
-		$data['PREVIOUS_LNAME_VALID'] = $this->validate($data['PREVIOUS_LNAME'],"lname");
-		
-		$data['PREVIOUS_EMAIL'] = $this->sanitize("email","email");
-		$data['PREVIOUS_EMAIL_VALID'] = $this->validate($data['PREVIOUS_EMAIL'],"email");
-		
-		$this->view("signUp")->render($data);
+	
+	if(isset($_POST["submit"])) {
+		$userModel = new userModel();
+		$checkDB = $userModel->connectDB();
+		if($checkDB == true){
+			$userModel->SignUp();
+			$userModel->closeDB();
+		}
 	}
-}	
+}
+
+function processUserDataSignIn()
+{
+	if(isset($_GET["signIn"])) {
+		$userModel = new userModel();
+		$checkDB = $userModel->connectDB();
+		if($checkDB == true){
+			$userModel->checkUser();
+			$userModel->closeDB();
+		}
+	}
+}
+
+if(isset($_POST["submit"]) && !empty($_POST["submit"])){
+	processUserDataSignUp(); 
+}
+
+if(isset($_GET["signIn"]) && !empty($_GET["signIn"])){
+	processUserDataSignIn(); 
+}
+
 ?>

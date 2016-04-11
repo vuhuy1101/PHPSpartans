@@ -50,7 +50,9 @@ function processData()
 				$imgModel->closeDB();
 			}
 			
+			
 			echo "Your image has been successfully uploaded!";
+			
 		}
 		else {
 			$valid = 0;
