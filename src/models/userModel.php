@@ -7,8 +7,16 @@ require_once(dirname(__DIR__).'/configs/DB_Config.php');
 session_set_cookie_params(0);
 session_start();
 
+	/**
+	*All methods that will be called by the user model by the controllers. 
+	*
+	*/
 class userModel extends Model
 {
+	/**
+	* Creates a new user in the userModel.
+	*
+	*/
 	function NewUser() { 
 		$fname = $_POST['fname'];
 		$lname = $_POST['lname']; 	
@@ -30,6 +38,10 @@ class userModel extends Model
 		} 
 	}
 	
+	/**
+	* Checks to see if the user can sign up for a new account or if it is taken.
+	*
+	*/
 	function SignUp() { 
 		if(!empty($_POST['user_name'])) //Check if the user name is empty
 		{
@@ -45,6 +57,10 @@ class userModel extends Model
 		}
 	}
 	
+	/**
+	* Check to see if the user exists.
+	*
+	*/
 	function checkUser(){
 		if(!empty($_GET['user_name']) && !empty($_GET['password'])) //Check if the user name is empty
 		{
@@ -69,6 +85,10 @@ class userModel extends Model
 		}	
 	}
 	
+	/**
+	* Retrieves all the data from the user model.
+	*
+	*/
 	function retrieveData(){
 		$sql = "SELECT * FROM phpspartans.Users";
 		$result = mysqli_query($this->conn, $sql);

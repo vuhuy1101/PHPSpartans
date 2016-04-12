@@ -10,7 +10,7 @@ require_once("View.php");
 class signUpView extends View
 {
    /** 
-	* Method used to draw the whole webpage
+	* Method used to draw the sign/sign up form view.
 	* @param array $data data from the controller based on previously submitted
 	*/	
 	public function render($data)

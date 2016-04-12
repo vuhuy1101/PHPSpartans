@@ -10,6 +10,10 @@ require_once(dirname(__DIR__).'/models/image_userModel.php');
 require_once(dirname(__DIR__).'/configs/DB_Config.php');
 require_once("Controller.php");
 
+	/**
+	* Upload pictures to the imageModel.
+	*
+	*/
 function processData()
 {
 	$destination = __DIR__."../resources/";
