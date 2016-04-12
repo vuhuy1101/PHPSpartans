@@ -1,22 +1,18 @@
 Issues created for each teammate to work on:
-1/ Sign up/sign in form
-2/ index.php 
-3/ upload image form
-4/ upload image and save it to src folder
-5/ calculate popularity of image
-6/ keep track of recent rating image
 
 Huy:
 - Save image to src folder & update data on database    [done]
 - Upload image form    [done]
-- update Rating on image after submitting  
-- Calculate popularity of image
+- Keep track of recent rating image [done]
+- update Rating on image after submitting  [done]
+- show popularity of image [done]
 
 David:
 - Sign up/sign in form [done]
 - sanitize/validate data sign up/ sign in form [done]
 - update data to 'Users' table after submitting sign-up and sign-in form [done]
-- Keep track of recent rating image
+- add elements for form [done]
+- sign in / sign out [done]
 
 Both:
 - index.php (make the page looks prettier)
