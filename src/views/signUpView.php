@@ -51,7 +51,7 @@ class signUpView extends View
 						<label for="password">Password:</label>
 						<input type="password" id="password" name="password" maxlength="12"/><br>
 						<label for="e-mail">E-mail Address:</label>
-						<input type="text" id="email" name="email" maxlength="20"/><br>
+						<input type="text" id="email" name="email" maxlength="40"/><br>
 						<input type="submit" name="submit" value="SignUp"/>
 					</form>
 					<?php 
