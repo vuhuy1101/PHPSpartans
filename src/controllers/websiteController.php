@@ -29,7 +29,10 @@ class websiteController extends Controller
 			$img_userData = $img_userModel->retrieveData();
 		}
 		
-		$data = array($temp, $_SESSION['user_id'], $img_userAvg, $img_userData);
+		if(isset($_SESSION['user_id']))
+			$data = array($temp, $_SESSION['user_id'], $img_userAvg, $img_userData);
+		else 
+			$data = array($temp, null, $img_userAvg, $img_userData);
 		
 		$this->view("website")->render($data);
 	}

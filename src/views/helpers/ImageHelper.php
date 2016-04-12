@@ -8,6 +8,7 @@ class ImageHelper extends Helper
 		$count = 0;
 		$count1 = 0;
 		$rate = null;
+		$uploader = null;
 		echo '<ul id="displayImg">';
 		//id, name, caption, rating, uploaded_time
 
@@ -21,7 +22,7 @@ class ImageHelper extends Helper
 				}
 				
 				echo 
-				     "<li><p>Name: ".$row['name'].$uploader."</p>".
+				     "<li><p>Name: ".$row['name']."</p>".
 				     "<p>Caption: ".$row['caption']."</p>".
 					 "<p>User: ".$uploader."</p>".
 				     "<p><img src='src/resources/".$row['name'].".jpg' width='500' /></p>";

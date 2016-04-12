@@ -13,7 +13,7 @@ class image_userModel extends Model
 		if($option == 1)
 			$result = mysqli_query($this->conn, $sql1);
 		else $result = mysqli_query($this->conn, $sql2);
-		//$result = mysqli_query($this->conn, $sql2);
+		
 		return $result;
 	}
 	
@@ -40,12 +40,16 @@ class image_userModel extends Model
 		return $result;
 	}
 	
-	public function retrieveRating($imageID, $userID, $uploader)
+	public function retrieveRating($imageID, $userID)
 	{
-		$sql = "SELECT rate FROM phpspartans.Images_Users WHERE imageID = $imageID AND userID = $userID AND uploader_userName = '$uploader'";
+		$sql = "SELECT rate FROM phpspartans.Images_Users WHERE imageID = $imageID AND userID = $userID AND uploader_userName is NOT NULL";
 		$result = mysqli_query($this->conn, $sql);
+		if(mysqli_num_rows($result) > 0)
+			$rate = mysqli_fetch_array($result);
+		else 
+			return "not exists";
 		
-		return $result;
+		return $rate['rate'];
 
 	}
 	

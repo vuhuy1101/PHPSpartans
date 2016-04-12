@@ -22,7 +22,10 @@ class userModel extends Model
 			//Registration Done
 			$_SESSION['login'] = "1";
 			$_SESSION['user'] = $userName;
-			$_SESSION['user_id'] = $row['id'];
+			$findID = mysqli_query($this->conn, "SELECT * FROM Users WHERE user = '$userName' AND password ='$password'");
+			if($row = mysqli_fetch_array($findID))
+				$_SESSION['user_id'] = $row['id'];
+			
 			header("Location: http://localhost/PHPSpartans/index.php");
 		} 
 	}
@@ -48,8 +51,9 @@ class userModel extends Model
 			$userName = $_GET['user_name'];
 			$password = $_GET['password']; 
 			
-			$result = mysqli_query($this->conn, "SELECT * FROM Users WHERE user = '$_GET[user_name]' AND password = '$_GET[password]'") or die(mysql_error());
-			if($row = mysqli_fetch_array($result) > 0) { 
+			$result = mysqli_query($this->conn, "SELECT * FROM Users WHERE user = '$userName' AND password = '$password'") or die(mysql_error());
+			
+			if($row = mysqli_fetch_array($result)){ 
 				//Account exists
 				$_SESSION['login'] = "1";
 				$_SESSION['user'] = $userName;

@@ -12,11 +12,11 @@ function processData()
 	$model = new image_userModel();
 	if($model->connectDB()){
 		$check = $model->retrieveRating($_POST['image_ID'], $_POST['user_ID']);
-		if(mysqli_num_rows($check) > 0){
+		if($check == null){
 			$option = 1; //update
 		}else $option = 0; //insert
 		
-		echo $option.' '.$_POST['image_ID'].' '.$_POST['user_ID'].' '.$_POST['rateOption'];
+		echo $option.'@'.$_POST['image_ID'].'/'.$_POST['user_ID'].'-'.$_POST['rateOption'].' end';
 		$result = $model->insertRating($option, $_POST['image_ID'], $_POST['user_ID'], $_POST['rateOption'], $_POST['uploader']);
 		
 		header("Location: http://localhost/PHPSpartans/index.php");	

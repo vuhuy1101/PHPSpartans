@@ -45,17 +45,21 @@ function processData()
 			if(imagejpeg($scaled_image,dirname(dirname(__DIR__))."/src/resources/".$imgName.".jpg")){
 				if(isset($_POST['caption']))
 					$caption = $_POST["caption"];
+					
 				$userName = $_SESSION['user'];
 				$img_userModel = new image_userModel();
 				$imgModel = new imageModel();
 				$checkDB = $imgModel->connectDB();
 				if($checkDB == true){
-					$imgModel->insertData($imgName, $_SESSION['user_id'], $caption);
+					$imgModel->insertData($imgName, $caption);
 				}
+				
 				if($img_userModel->connectDB()){
 					$img_ID = $imgModel->retrieveID($imgName);
 					$img_userModel->insertUploader($img_ID, $_SESSION['user_id'], $userName);
 				}
+				
+				$imgModel->closeDB();
 				
 				header("Location: http://localhost/PHPSpartans/index.php");
 			}
