@@ -39,7 +39,7 @@ class websiteView extends View
 				if($_SESSION['login'] === "0"){ 
 				?>
 					<ul id="navbar">
-					 <?php $htmlElement->signInRender($data); ?>
+					 <?php $htmlElement->render($data); ?>
 					</ul>
 				<?php 
 				} else {

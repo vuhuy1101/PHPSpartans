@@ -61,13 +61,18 @@ function processData()
 				
 				$imgModel->closeDB();
 				
-				header("Location: http://localhost/PHPSpartans/index.php");
+				echo "<p>Picture was uploaded successfully!</p>
+					  <button><a href='http://localhost/PHPSpartans/index.php?controller=uploadForm'>Upload Another Image.</a></button><br><br>
+					  <button><a href='http://localhost/PHPSpartans/'>To The Main Page.</a>";
+				
 			}
 
 		}
 		else {
 			$valid = 0;
-			echo "Failed";
+			echo "<p>Picture failed.</p>
+					  <button><a href='http://localhost/PHPSpartans/index.php?controller=uploadForm'>Upload Another Image.</a></button><br><br>
+					  <button><a href='http://localhost/PHPSpartans/'>To The Main Page.</a>";
 		}
 	}
 }

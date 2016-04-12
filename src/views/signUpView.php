@@ -29,9 +29,9 @@ class signUpView extends View
 				<div class="containerSignIn">
 					<form action="../PHPSpartans/src/controllers/signUpController.php" method="get">
 						<label for="user_name">User Name:</label>
-						<input type="text" id="user_name" name="user_name"/><br>
+						<input type="text" id="user_name" name="user_name" maxlength="12"/><br>
 						<label for="password">Password:</label>
-						<input type="password" id="password" name="password"/><br>
+						<input type="password" id="password" maxlength="12" name="password"/><br>
 						<input type="submit" name="signIn" value="Login"/>
 					</form>
 				<?php 
@@ -43,15 +43,15 @@ class signUpView extends View
 				<div class="containerSignUp">
 					<form action="../PHPSpartans/src/controllers/signUpController.php" method="post">
 						<label for="fname">First Name:</label>
-						<input type="text" id="fname" name="fname"/><br>
+						<input type="text" id="fname" name="fname" maxlength="20"/><br>
 						<label for="lname">Last Name:</label>
-						<input type="text" id="lname" name="lname"/><br>
+						<input type="text" id="lname" name="lname" maxlength="20"/><br>
 						<label for="user_name">User Name:</label>
-						<input type="text" id="user_name" name="user_name"/><br>
+						<input type="text" id="user_name" name="user_name" maxlength="12"/><br>
 						<label for="password">Password:</label>
-						<input type="password" id="password" name="password"/><br>
+						<input type="password" id="password" name="password" maxlength="12"/><br>
 						<label for="e-mail">E-mail Address:</label>
-						<input type="text" id="email" name="email"/><br>
+						<input type="text" id="email" name="email" maxlength="20"/><br>
 						<input type="submit" name="submit" value="SignUp"/>
 					</form>
 					<?php 
