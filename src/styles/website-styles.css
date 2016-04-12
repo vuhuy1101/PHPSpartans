@@ -113,3 +113,7 @@ ul#displayImg li{
 	border-radius: 15px;
 	line-height: 5px;
 }
+
+#uploadForm{
+	text-align: center;
+}

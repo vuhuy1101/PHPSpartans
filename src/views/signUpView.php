@@ -27,7 +27,7 @@ class signUpView extends View
 				<h1 class="signIn"> Sign-In </h1>	
 				<h1 class="signUp"> Sign-Up </h1>
 				<div class="containerSignIn">
-					<form action="../PHPSpartans/src/controllers/signUpController.php" method="get">
+					<form action="../PHPSpartans/src/controllers/signUpController.php" method="get" autocomplete="off">
 						<label for="user_name">User Name:</label>
 						<input type="text" id="user_name" name="user_name" maxlength="12"/><br>
 						<label for="password">Password:</label>
@@ -41,7 +41,7 @@ class signUpView extends View
 				<?php unset($_SESSION["noAccount"]); }}?>
 				</div>
 				<div class="containerSignUp">
-					<form action="../PHPSpartans/src/controllers/signUpController.php" method="post">
+					<form action="../PHPSpartans/src/controllers/signUpController.php" method="post" autocomplete="off">
 						<label for="fname">First Name:</label>
 						<input type="text" id="fname" name="fname" maxlength="20"/><br>
 						<label for="lname">Last Name:</label>
