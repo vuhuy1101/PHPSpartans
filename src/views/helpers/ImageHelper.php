@@ -8,6 +8,7 @@ class ImageHelper extends Helper
 		$count = 0;
 		$count1 = 0;
 		$rate = null;
+		$uploader = null;
 		echo '<ul id="displayImg">';
 		//id, name, caption, rating, uploaded_time
 
@@ -58,7 +59,7 @@ class ImageHelper extends Helper
 								<form action='../PHPSpartans/src/controllers/ratingController.php' method='post'>
 								<input type='hidden' name='image_ID' value='$image_ID'>
 								<input type='hidden' name='user_ID' value='$user_ID'>
-								<input type='hidden' name='uploader_userName' value='$uploader'>
+								<input type='hidden' name='uploader' value='$uploader'>
 								<p>Rating: <select name='rateOption' id='rateOption'>
 									<option value='1'>1</option>
 									<option value='2'>2</option>

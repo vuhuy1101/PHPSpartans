@@ -1,8 +1,11 @@
 <?php
 namespace PHPSpartans\hw3\views;
 use PHPSpartans\hw3\views\helpers\imageHelper;
+use PHPSpartans\hw3\views\elements\SignInElement;
 	
 require_once("View.php");
+require_once("elements/Element.php");
+require_once("elements/SignInElement.php");
 require_once("helpers/Helper.php");
 require_once("helpers/imageHelper.php");
 	
@@ -18,6 +21,7 @@ class websiteView extends View
 	public function render($data)
 	{
 		$imgHelper = new ImageHelper();
+		$htmlElement = new SignInElement("website");
 					
 		?>
 		<!DOCTYPE html>
@@ -33,7 +37,7 @@ class websiteView extends View
 				if($_SESSION['login'] === "0"){ 
 				?>
 					<ul id="navbar">
-						<li><a href="../PHPSpartans/index.php?controller=signUpForm">Sign-In/Sign-Up</a></li>
+					 <?php $htmlElement->signInRender($data); ?>
 					</ul>
 				<?php 
 				} else {

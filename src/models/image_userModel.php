@@ -7,12 +7,12 @@ require_once(dirname(__DIR__).'/configs/DB_Config.php');
 class image_userModel extends Model
 {
 	public function insertRating($option, $imageID, $userID, $rate, $uploader){
-		$sql1 = "UPDATE Images_Users SET rate = $rate WHERE imageID = $imageID AND userID = $userID";
+		$sql1 = "UPDATE Images_Users SET rate = $rate WHERE imageID = $imageID AND userID = $userID AND uploader_userName = '$uploader'" ;
 		$sql2 = "INSERT INTO Images_Users VALUES($imageID, $userID, $rate, '$uploader')";
 		
-		if($option === 1)
-			$result = mysqli_query($this->conn, $sql2);
-		else $result = mysqli_query($this->conn, $sql1);
+		if($option == 1)
+			$result = mysqli_query($this->conn, $sql1);
+		else $result = mysqli_query($this->conn, $sql2);
 		
 		return $result;
 	}
@@ -40,12 +40,16 @@ class image_userModel extends Model
 		return $result;
 	}
 	
-	public function retrieverating($imageID, $userID)
+	public function retrieveRating($imageID, $userID)
 	{
-		$sql = "SELECT rate FROM phpspartans.Images_Users WHERE imageID = $imageID AND userID = $userID";
+		$sql = "SELECT rate FROM phpspartans.Images_Users WHERE imageID = $imageID AND userID = $userID AND uploader_userName is NOT NULL";
 		$result = mysqli_query($this->conn, $sql);
+		if(mysqli_num_rows($result) > 0)
+			$rate = mysqli_fetch_array($result);
+		else 
+			return "not exists";
 		
-		return $result;
+		return $rate['rate'];
 
 	}
 	
