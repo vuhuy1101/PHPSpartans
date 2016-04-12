@@ -6,6 +6,8 @@ Huy:
 - Keep track of recent rating image [done]
 - update Rating on image after submitting  [done]
 - show popularity of image [done]
+- update Rating on image after submitting [done]
+- Calculate popularity of image [done]
 
 David:
 - Sign up/sign in form [done]
@@ -13,6 +15,7 @@ David:
 - update data to 'Users' table after submitting sign-up and sign-in form [done]
 - add elements for form [done]
 - sign in / sign out [done]
+- Keep track of recent rating image [done]
 
 Both:
 - index.php (make the page looks prettier)

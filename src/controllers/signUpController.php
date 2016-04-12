@@ -7,6 +7,10 @@ require_once(dirname(__DIR__).'/models/userModel.php');
 require_once(dirname(__DIR__).'/configs/DB_Config.php');
 require_once("Controller.php");
 
+	/**
+	* Controller calls model to sign up user.
+	*
+	*/
 function processUserDataSignUp()
 {
 	
@@ -20,6 +24,10 @@ function processUserDataSignUp()
 	}
 }
 
+	/**
+	* Controller calls model to sign user in.
+	*
+	*/
 function processUserDataSignIn()
 {
 	if(isset($_GET["signIn"])) {

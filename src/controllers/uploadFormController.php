@@ -3,6 +3,10 @@
 		
 	require_once("Controller.php");
 	
+	/**
+	*Processes the form data from the uploadForms and renders the proper view.
+	*
+	*/
 	class UploadFormController extends Controller
 	{
 		/**

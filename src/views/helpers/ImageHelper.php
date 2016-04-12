@@ -1,6 +1,10 @@
 <?php
 namespace PHPSpartans\hw3\views\helpers;
 
+	/**
+	* Will render all the images that will be presented on the main webpage.
+	*
+	*/
 class ImageHelper extends Helper
 {
 	function render($data)

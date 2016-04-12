@@ -10,7 +10,7 @@ require_once("View.php");
 class signUpView extends View
 {
    /** 
-	* Method used to draw the whole webpage
+	* Method used to draw the sign/sign up form view.
 	* @param array $data data from the controller based on previously submitted
 	*/	
 	public function render($data)
@@ -51,7 +51,7 @@ class signUpView extends View
 						<label for="password">Password:</label>
 						<input type="password" id="password" name="password" maxlength="12"/><br>
 						<label for="e-mail">E-mail Address:</label>
-						<input type="text" id="email" name="email" maxlength="20"/><br>
+						<input type="text" id="email" name="email" maxlength="40"/><br>
 						<input type="submit" name="submit" value="SignUp"/>
 					</form>
 					<?php 
