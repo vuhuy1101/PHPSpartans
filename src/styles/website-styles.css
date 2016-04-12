@@ -1,6 +1,18 @@
 /* CSS file */
-h1{
+h1,h2{
 	text-align: center;
+}
+
+body{
+	background-color: #eaf3f9;
+}
+
+h1{
+	font-family: "Arial Black", Gadget, sans-serif;
+}
+
+h2{
+	font-family: "Comic Sans MS", cursive, sans-serif;
 }
 
 h1.signIn {
@@ -39,6 +51,24 @@ h1.signUp {
 	clear: both;
 }
 
+#uploadBttn a{
+	text-decoration: none;
+	color:white;
+}
+
+#uploadBttn button{
+	height:40px;
+	width:130px;
+	background-color: #1174b9;
+	border-radius: 10px;
+	border: 1px solid black;
+	border-style: none;
+	font-size: 1em;
+}
+
+#uploadBttn button:hover{
+	background-color:#5392d2;
+}
 
 ul#navbar{
 	list-style-type: none;
@@ -67,10 +97,6 @@ ul#navbar li{
 	text-align: center;
 }
 
-#displayImg{
-	line-height: 0.3px;
-}
-
 ul#displayImg{
 	list-style-type: none;
 	overflow: hidden;
@@ -81,6 +107,9 @@ ul#displayImg li{
 	vertical-align: top;
 	display:inline-block;  
 	position: relative;
-	padding:10px 0 10px 0;
+	padding:5px 20px 20px 20px;
 	margin: 10px 20px 20px 20px;
+	background-color: #ffffff;
+	border-radius: 15px;
+	line-height: 5px;
 }

@@ -22,17 +22,19 @@ class websiteController extends Controller
 		$checkDB = $imgModel->connectDB();
 		if($checkDB === true){
 			$temp = $imgModel->retrieveMostRecent();
+			$allImageData = $imgModel->retrieveData();
 		}
 		
 		if($img_userModel->connectDB()){
 			$img_userAvg = $img_userModel->retrieveAVG();
 			$img_userData = $img_userModel->retrieveData();
+			$popular_Images = $img_userModel->retrievePopular();
 		}
 		
 		if(isset($_SESSION['user_id']))
-			$data = array($temp, $_SESSION['user_id'], $img_userAvg, $img_userData);
+			$data = array($temp, $_SESSION['user_id'], $img_userAvg, $img_userData, $popular_Images, $allImageData);
 		else 
-			$data = array($temp, null, $img_userAvg, $img_userData);
+			$data = array($temp, null, $img_userAvg, $img_userData, $popular_Images, $allImageData);
 		
 		$this->view("website")->render($data);
 	}

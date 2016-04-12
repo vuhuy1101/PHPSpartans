@@ -22,10 +22,10 @@ class ImageHelper extends Helper
 				}
 				
 				echo 
-				     "<li><p>Name: ".$row['name']."</p>".
+					"<li><p><img src='src/resources/".$row['name'].".jpg' width='500' /></p>".
 				     "<p>Caption: ".$row['caption']."</p>".
-					 "<p>User: ".$uploader."</p>".
-				     "<p><img src='src/resources/".$row['name'].".jpg' width='500' /></p>";
+					 "<p>User: ".$uploader."</p>";
+				     
 				
 				mysqli_data_seek($data[2],0);
 				while(($rateRow = mysqli_fetch_assoc($data[2]))){

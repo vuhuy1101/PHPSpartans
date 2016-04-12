@@ -40,6 +40,16 @@ class image_userModel extends Model
 		return $result;
 	}
 	
+	public function retrievePopular()
+	{
+		$sql = "SELECT imageID, name, caption, uploaded_time, AVG(rate) as average FROM phpspartans.Images_Users, 
+		phpspartans.ImageRating WHERE Images_Users.imageID = ImageRating.ID 
+		GROUP BY imageID ORDER BY average DESC LIMIT 10";
+		$result = mysqli_query($this->conn, $sql);
+		
+		return $result;
+	}
+	
 	public function retrieveRating($imageID, $userID)
 	{
 		$sql = "SELECT rate FROM phpspartans.Images_Users WHERE imageID = $imageID AND userID = $userID AND uploader_userName is NOT NULL";

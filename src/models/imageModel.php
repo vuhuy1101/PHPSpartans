@@ -14,7 +14,15 @@ class imageModel extends Model
 	
 	public function retrieveMostRecent()
 	{
-		$sql = "SELECT * FROM phpspartans.ImageRating GROUP BY uploaded_time DESC;";
+		$sql = "SELECT * FROM phpspartans.ImageRating GROUP BY uploaded_time DESC LIMIT 3";
+		$result = mysqli_query($this->conn, $sql);
+		
+		return $result;	
+	}
+	
+	public function retrieveData()
+	{
+		$sql = "SELECT * FROM phpspartans.ImageRating";
 		$result = mysqli_query($this->conn, $sql);
 		
 		return $result;	
